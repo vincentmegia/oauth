@@ -9,3 +9,4 @@ app/.settings/org.eclipse.buildship.core.prefs
 **/*.class
 app/.classpath
 app/.project
+.project
