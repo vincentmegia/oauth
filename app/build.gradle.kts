@@ -25,6 +25,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.auth0:java-jwt:4.4.0")
     implementation("org.bouncycastle:bcpkix-jdk18on:1.78.1")
+    implementation("com.nimbusds:nimbus-jose-jwt:9.40")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")

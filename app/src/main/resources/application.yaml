@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: "authorization-service"
+    apiPrefix: "/api/v1"
+  security:
+    private-key-file: "./app/src/test/resources/test-private.pem"
+    public-key-file: "./app/src/test/resources/test-public.pem"
+

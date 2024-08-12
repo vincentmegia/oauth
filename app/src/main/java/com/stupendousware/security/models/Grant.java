@@ -7,4 +7,13 @@ package com.stupendousware.security.models;
 */
 
 public class Grant {
+    private String origin;
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
 }

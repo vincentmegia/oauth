@@ -3,22 +3,12 @@ package com.stupendousware.security.models;
 /* 
 Code returned from Authorization Server
  */
-public class AccessToken {
-    private String code;
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
+public record AccessToken(String token) {
     @Override
     public int hashCode() {
         final var prime = 31;
         var result = 1;
-        result = prime * result + ((code == null) ? 0 : code.hashCode());
+        result = prime * result + ((token == null) ? 0 : token.hashCode());
         return result;
     }
 
@@ -31,10 +21,10 @@ public class AccessToken {
         if (getClass() != obj.getClass())
             return false;
         var other = (AccessToken) obj;
-        if (code == null) {
-            if (other.code != null)
+        if (token == null) {
+            if (other.token != null)
                 return false;
-        } else if (!code.equals(other.code))
+        } else if (!token.equals(other.token))
             return false;
         return true;
     }

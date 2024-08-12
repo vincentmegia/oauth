@@ -10,3 +10,4 @@ app/.settings/org.eclipse.buildship.core.prefs
 app/.classpath
 app/.project
 .project
+app/bin/main/application.yaml

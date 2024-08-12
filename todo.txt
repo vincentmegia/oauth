@@ -1,0 +1,7 @@
+task
+
+1) Serve JWT
+  - Create a controller that serves JWT - DONE
+  - Create proper request model
+  - Store private and public PEM (a base 64 format of DER) into application.yaml - DONE
+2) Create a controller that serves JWE

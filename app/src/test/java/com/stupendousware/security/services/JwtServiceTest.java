@@ -22,6 +22,36 @@ public class JwtServiceTest {
     }
 
     @Test
+    public void testEncryptedToken() {
+
+        try {
+            var jwtService = new JwtService();
+            var token = jwtService.grantEncryptedToken(
+                    new User("sg-user-321", "john", "doe", "todo-app"),
+                    "./src/test/resources/test-public.pem");
+            assertTrue(token != null);
+        } catch (Exception e) {
+            assertTrue(true != false);
+        }
+    }
+
+    @Test
+    public void testVerifyEncryptedToken() {
+
+        try {
+            var jwtService = new JwtService();
+            var token = jwtService.grantEncryptedToken(
+                    new User("sg-user-321", "john", "doe", "todo-app"),
+                    "./src/test/resources/test-public.pem");
+            jwtService.verifyEncryptedToken(token,
+                    "./src/test/resources/test-private.pem");
+            assertTrue(token != null);
+        } catch (Exception e) {
+            assertTrue(true != false);
+        }
+    }
+
+    @Test
     public void testPrivateKey() {
         try {
             var jwtService = new JwtService();
@@ -37,13 +67,10 @@ public class JwtServiceTest {
     public void testToken() {
         try {
             var jwtService = new JwtService();
-            var privateKey = jwtService.getPrivateKeyFromPem(
+            var token = jwtService.grantToken(new User("sg-user-123", "john", "doe", "todo-app"),
+                    "./src/test/resources/test-public.pem",
                     "./src/test/resources/test-private.pem");
-            var publicKey = jwtService.getPublicKeyFromPem(
-                    "./src/test/resources/test-public.pem");
-            var token = jwtService.grantToken(new User("sg-user-123", "john", "doe", "todo-app"), publicKey,
-                    privateKey);
-            System.out.println(token);
+            System.out.println("token: " + token);
             assertTrue(token != "");
         } catch (Exception e) {
             System.out.println("exception: " + e.getMessage());
@@ -54,13 +81,11 @@ public class JwtServiceTest {
     public void testTokenWithPrivateClaims() {
         try {
             var jwtService = new JwtService();
-            var privateKey = jwtService.getPrivateKeyFromPem(
-                    "./src/test/resources/test-private.pem");
-            var publicKey = jwtService.getPublicKeyFromPem(
-                    "./src/test/resources/test-public.pem");
-            var token = jwtService.grantToken(new User("sg-user-123", "john", "doe", "todo-app"), publicKey,
-                    privateKey);
-            var decodedToken = jwtService.verify(token, publicKey, privateKey);
+            var privateKeyFilePath = "./src/test/resources/test-private.pem";
+            var publicKeyFilePath = "./src/test/resources/test-public.pem";
+            var token = jwtService.grantToken(new User("sg-user-123", "john", "doe", "todo-app"), publicKeyFilePath,
+                    privateKeyFilePath);
+            var decodedToken = jwtService.verify(token, publicKeyFilePath, privateKeyFilePath);
             System.out.println("decoded token: " + decodedToken.getIssuer());
             assertTrue(decodedToken.getIssuer().equals("stupendousware"));
         } catch (Exception e) {
