@@ -11,3 +11,4 @@ app/.classpath
 app/.project
 .project
 app/bin/main/application.yaml
+app/.settings/org.eclipse.jdt.core.prefs

@@ -5,4 +5,10 @@ spring:
   security:
     private-key-file: "./app/src/test/resources/test-private.pem"
     public-key-file: "./app/src/test/resources/test-public.pem"
+  redis:
+    host: "192.168.3.60"
+    port: 6379
 
+logging:
+  pattern:
+    console: '[%-5level][%d{HH:mm:ss.SSS}][%thread][%class{0}][%X{correlationId}] - %msg%n'

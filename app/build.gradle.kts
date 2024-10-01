@@ -23,9 +23,11 @@ dependencies {
     // This dependency is used by the application.
     implementation(libs.guava)
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("com.auth0:java-jwt:4.4.0")
     implementation("org.bouncycastle:bcpkix-jdk18on:1.78.1")
     implementation("com.nimbusds:nimbus-jose-jwt:9.40")
+    implementation("redis.clients:jedis:5.2.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
